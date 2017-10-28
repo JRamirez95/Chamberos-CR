@@ -1,0 +1,17 @@
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\TallerSoftware.exe.config
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\TallerSoftware.exe
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\TallerSoftware.pdb
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\obj\Debug\TallerSoftware.csprojResolveAssemblyReference.cache
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\obj\Debug\TallerSoftware.Form1.resources
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\obj\Debug\TallerSoftware.Properties.Resources.resources
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\obj\Debug\TallerSoftware.csproj.GenerateResource.Cache
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\obj\Debug\TallerSoftware.exe
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\obj\Debug\TallerSoftware.pdb
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\DBAccess.dll
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\Npgsql.dll
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\MySql.Data.dll
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\System.Data.SQLite.dll
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\DBAccess.pdb
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\DBAccess.dll.config
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\Npgsql.xml
+c:\users\usuario\documents\visual studio 2017\Projects\TallerSoftware\TallerSoftware\bin\Debug\System.Data.SQLite.xml

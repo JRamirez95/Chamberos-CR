@@ -14,6 +14,13 @@
 
 </head>
 
+<?php
+// Consultar la base de datos
+$con = mysqli_connect("127.0.0.1","root","","chamberos") or die ("Error de conexion");
+$consulta = "SELECT * FROM `usuarios`";
+$ejecutar = mysqli_query($con,$consulta);
+
+ ?>
 <body class="login">
 
     <nav class="navbar navbar-top hidden-xs">

@@ -99,6 +99,15 @@ $ejecutar = mysqli_query($con,$consulta);
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="text-center">
+                                                    <a href="principalUsuario.html" tabindex="5" class="forgot-password">Principal Usuario</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </form>
                                 <form id="register-form" action="" method="post" role="form" style="display: none;">
                                     <div class="form-group">

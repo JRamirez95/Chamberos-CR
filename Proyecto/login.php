@@ -62,7 +62,7 @@ $ejecutar = mysqli_query($con,$consulta);
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="principal.html" method="post" role="form" style="display: block;">
+                                <form id="login-form" action="principalUsuarios.html" method="post" role="form" style="display: block;">
                                     <div class="or-box">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
@@ -100,15 +100,7 @@ $ejecutar = mysqli_query($con,$consulta);
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="text-center">
-                                                    <a href="principalUsuario.html" tabindex="5" class="forgot-password">Principal Usuario</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                 
                                 </form>
                                 <form id="register-form" action="" method="post" role="form" style="display: none;">
                                     <div class="form-group">

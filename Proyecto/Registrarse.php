@@ -69,9 +69,10 @@
 			$nombre = $_POST['nombre'];
 			$usuario = $_POST['usuario'];
 			$email = $_POST['email'];            
-            $contrasena = $_POST['contrasena'];            
+			$contrasena = $_POST['contrasena'];
+			$estado = 'nuevo';            
 
-		$insert = "INSERT INTO usuarios(nombre, usuario, email, contrasena) VALUES ('$nombre','$usuario','$email','$contrasena')";		
+		$insert = "INSERT INTO usuarios(nombre, usuario, email, contrasena, estado) VALUES ('$nombre','$usuario','$email','$contrasena','$estado')";		
 
 		$ejecutar = mysqli_query($con, $insert);		
 		if($ejecutar){

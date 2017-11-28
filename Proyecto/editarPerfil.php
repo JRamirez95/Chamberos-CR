@@ -62,7 +62,7 @@
             <span class="heading">Menu</span>
             <ul class="list-unstyled">
                 <li><a href="principalUsuarios.php"><i class="fa fa-info-circle"></i>Bibliografía</a></li>
-                <li><a href="#"><i class="fa fa-comment"></i>Mensajes</a></li>
+                <li><a href="Mensajes.php"><i class="fa fa-comment"></i>Mensajes</a></li>
                 <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"><i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
                         <li><a href="#"><i class="fa fa-photo"></i>Fotos</a></li>
@@ -70,7 +70,7 @@
                     </ul>
                 </li>
                 <!-- <li> <a href="#"> <i class="fa fa-photo"></i>Fotos</a></li>-->
-                <li><a href="#"><i class="fa fa-cog"></i>Parametros</a></li>
+                <li><a href="Parametros.php"><i class="fa fa-cog"></i>Parametros</a></li>
                 <li class="active"><a href="#"><i class="fa fa-edit"></i>Editar Información</a></li>
                 <li><a href="login.php"><i class="fa fa-sign-out"></i>Cerrar Sesion</a></li>
             </ul>
@@ -79,7 +79,7 @@
         <div class="page-content">
             <div class="page-header">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Editar Perfil</h2>
+                    <h2 class="h5 no-margin-bottom fa fa-edit"> Editar Perfil</h2>
                 </div>
             </div>
 

@@ -26,7 +26,7 @@
           </div>
 
           <ul class="right-menu list-inline no-margin-bottom">   
-            <li class="list-inline-item logout"><a id="logout" href="login.php" class="nav-link">Cerrar Sesion <i class="fa fa-power-off"></i></a></li>
+            <li class="list-inline-item logout"><a id="logout" href="login.php" class="nav-link">Cerrar Sesion <i class="fa fa-sign-out"></i></a></li>
           </ul>
         </div>
       </nav>
@@ -43,15 +43,18 @@
 
         </div><span class="heading">Menu</span>
         <ul class="list-unstyled">
-          <li class="active"><a href="index.html"><i class="fa fa-info-circle"></i>Bibliografía</a></li>
-          <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-windows"></i>Dropdown </a>
+          <li class="active"><a href=""><i class="fa fa-info-circle"></i>Bibliografía</a></li>
+          <li> <a href="#"> <i class="fa fa-comment"></i>Mensajes</a></li>
+          <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-film"></i>Multimedia </a>
             <ul id="dashvariants" class="collapse list-unstyled">
-              <li><a href="#">Page</a></li>              
+            <li> <a href="#"> <i class="fa fa-photo"></i>Fotos</a></li>
+            <li> <a href="#"> <i class="fa fa-video-camera"></i>Videos</a></li>           
             </ul>
           </li>
-          <li> <a href="#"> <i class="fa fa-pencil"></i>Editar Perfil</a></li>          
-          <li> <a href="#"> <i class="fa fa-user"></i>Forms</a></li>
-          <li> <a href="#"> <i class="fa fa-power-off"></i>Cerrar Sesion</a></li>
+          <!-- <li> <a href="#"> <i class="fa fa-photo"></i>Fotos</a></li>-->
+          <li> <a href="#"> <i class="fa fa-cog"></i>Parametros</a></li> 
+          <li> <a href="editarPerfil.php"> <i class="fa fa-pencil"></i>Editar Perfil</a></li>        
+          <li> <a href="#"> <i class="fa fa-sign-out"></i>Cerrar Sesion</a></li>
         </ul>
       </nav>
 
@@ -60,12 +63,12 @@
           <div class="container-fluid">
             <h2 class="h5 no-margin-bottom">Perfil</h2>
           </div>
-        </div>      
-    
-      
-      </div>
+        </div>
+        
+        
+      </div>      
     </div>
-    <!-- Javascript files-->
+  
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"> </script>
     <script src="css/bootstrap/js/bootstrap.min.js"></script>    

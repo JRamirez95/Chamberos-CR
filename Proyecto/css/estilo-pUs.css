@@ -42,7 +42,7 @@ a {
 }
 
 .dashbg-3 {
-  background: #e95f71;
+  background: #007bff;
 }
 
 .dashbg-4 {
@@ -122,7 +122,7 @@ input {
 }
 
 .breadcrumb a {
-  color: #DB6574;
+  color: #007bff;
   text-decoration: none !important;
 }
 
@@ -178,7 +178,7 @@ input {
 }
 
 .dropdown-menu a:hover {
-  background: #DB6574;
+  background: #007bff;
   color: #fff;
 }
 
@@ -315,188 +315,6 @@ nav.navbar a.nav-link .badge {
   position: absolute;
   top: 0;
   right: -10px;
-}
-
-nav.navbar .messages-toggle,
-nav.navbar .tasks-toggle {
-  margin-right: 15px;
-}
-
-nav.navbar .menu-large {
-  position: static !important;
-}
-
-nav.navbar .search-panel {
-  display: none;
-}
-
-nav.navbar .search-inner {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(45, 48, 53, 0.95);
-  z-index: 999;
-}
-
-nav.navbar .search-inner .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  font-size: 1.1em;
-  font-weight: 400;
-  cursor: pointer;
-}
-
-nav.navbar .search-inner form {
-  width: 100%;
-  max-width: 800px;
-  padding: 20px;
-}
-
-nav.navbar .search-inner .form-group {
-  position: relative;
-}
-
-nav.navbar .search-inner .submit {
-  background: none;
-  font-size: 2.3rem;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  color: #8a8d93;
-  border: none;
-  font-weight: 700 !important;
-}
-
-nav.navbar .search-inner input {
-  background: none;
-  width: 100%;
-  font-size: 2rem;
-  border: none;
-  border-bottom: 1px solid #444951;
-  color: #8a8d93;
-}
-
-nav.navbar .search-inner input::-moz-placeholder {
-  font-family: "Muli", sans-serif;
-  font-weight: 300 !important;
-  color: #585a5f;
-}
-
-nav.navbar .search-inner input::-webkit-input-placeholder {
-  font-family: "Muli", sans-serif;
-  font-weight: 300 !important;
-  color: #585a5f;
-}
-
-nav.navbar .search-inner input:-ms-input-placeholder {
-  font-family: "Muli", sans-serif;
-  font-weight: 300 !important;
-  color: #585a5f;
-}
-
-nav.navbar .dropdown-menu {
-  min-width: 300px;
-}
-
-nav.navbar .messages a {
-  padding: 15px !important;
-}
-
-nav.navbar .dropdown-item.message {
-  color: #8a8d93;
-  text-decoration: none;
-  border-bottom: 1px solid #393c43;
-}
-
-nav.navbar .dropdown-item.message:hover {
-  background: #282b2f;
-}
-
-nav.navbar .dropdown-item.message li:last-of-type a {
-  border-bottom: none;
-}
-
-nav.navbar .dropdown-item.message .profile {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 15px;
-  position: relative;
-}
-
-nav.navbar .dropdown-item.message .profile img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-nav.navbar .dropdown-item.message .profile .status {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  position: absolute;
-  top: 2px;
-  right: 2px;
-}
-
-nav.navbar .dropdown-item.message .profile .status.online {
-  background: #28a745;
-}
-
-nav.navbar .dropdown-item.message .profile .status.away {
-  background: #ffc107;
-}
-
-nav.navbar .dropdown-item.message .profile .status.busy {
-  background: #dc3545;
-}
-
-nav.navbar .dropdown-item.message .profile .status.offline {
-  background: #999;
-}
-
-nav.navbar .dropdown-item.message .content strong {
-  font-size: 1rem;
-}
-
-nav.navbar .dropdown-item.message .content span {
-  font-weight: 300;
-  font-size: 0.85rem;
-}
-
-nav.navbar .dropdown-item.message .content .date {
-  color: #70737a;
-}
-
-nav.navbar .tasks-list li:last-of-type a {
-  border-bottom: none;
-}
-
-nav.navbar .tasks-list a {
-  padding: 15px !important;
-  border-bottom: 1px solid #393c43;
-}
-
-nav.navbar .tasks-list a:hover {
-  background: #282b2f;
-}
-
-nav.navbar .tasks-list strong {
-  font-size: 1rem;
-}
-
-nav.navbar .tasks-list span {
-  font-size: 0.95rem;
-}
-
-nav.navbar .tasks-list .progress {
-  height: 2px;
-  margin-top: 10px;
-  background: #444951;
 }
 
 /* Navbar dropdown effect */
@@ -677,7 +495,7 @@ nav#sidebar ul a:hover {
 }
 
 nav#sidebar ul a:hover i {
-  color: #DB6574;
+  color: #007bff;
 }
 
 nav#sidebar ul a i {
@@ -705,7 +523,7 @@ nav#sidebar li::before {
 }
 
 nav#sidebar li.active::before {
-  background: #DB6574;
+  background: #007bff;
 }
 
 nav#sidebar li.active a {
@@ -714,7 +532,7 @@ nav#sidebar li.active a {
 }
 
 nav#sidebar li.active i {
-  color: #DB6574;
+  color: #007bff;
 }
 
 nav#sidebar.shrinked {
@@ -834,4 +652,5 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
     content: '\f106';
   }
 }
+
 

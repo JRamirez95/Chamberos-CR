@@ -7,27 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link media="all" type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/estilos.css">
 
 </head>
 
-<?php
-
-$con = mysqli_connect("127.0.0.1","root","","chamberos") or die ("Error de conexion");
-$consulta = "SELECT * FROM `usuarios`";
-$ejecutar = mysqli_query($con,$consulta);
-
- ?>
-
     <body class="login">
 
         <nav class="navbar navbar-expand-lg mb-4 top-bar navbar-static-top sps sps--abv">
             <div class="container">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-controls="navbarCollapse"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <span class="navbar-brand mx-auto" href="#" style="color: black;">Configuración de Servicio</span>
@@ -44,7 +34,6 @@ $ejecutar = mysqli_query($con,$consulta);
 
         <div class="container log">
 
-
             <div class="omb_login">
                 <h3 class="omb_authTitle">Iniciar Sesion o
                     <a href="Registrarse.php">Registrarse</a>
@@ -56,7 +45,7 @@ $ejecutar = mysqli_query($con,$consulta);
                             <span class="hidden-xs">Facebook</span>
                         </a>
                     </div>
-                  
+
                 </div>
 
                 <div class="row omb_row-sm-offset-3 omb_loginOr">
@@ -68,12 +57,12 @@ $ejecutar = mysqli_query($con,$consulta);
 
                 <div class="row omb_row-sm-offset-3">
                     <div class="col-xs-12 col-sm-6">
-                        <form class="omb_loginForm" action="principalUsuarios.php" autocomplete="off" method="POST">
+                        <form class="omb_loginForm" action="checklogin.php" autocomplete="off" method="POST">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                 </span>
-                                <input type="text" class="form-control" name="username" placeholder="email">
+                                <input type="text" class="form-control" name="email" placeholder="email">
                             </div>
                             <span class="help-block"></span>
                             <br>
@@ -81,10 +70,10 @@ $ejecutar = mysqli_query($con,$consulta);
                                 <span class="input-group-addon">
                                     <i class="fa fa-lock"></i>
                                 </span>
-                                <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                                <input type="password" class="form-control" name="contrasena" placeholder="Contraseña">
                             </div>
                             <br>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit" action="ConfigurarServicio.html" methos="post">Iniciar Sesion</button>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesion</button>
                         </form>
                     </div>
                 </div>
@@ -102,9 +91,8 @@ $ejecutar = mysqli_query($con,$consulta);
                 </div>
             </div>
 
-
-
         </div>
+        
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/login.js"></script>

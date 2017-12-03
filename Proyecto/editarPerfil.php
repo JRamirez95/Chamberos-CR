@@ -13,8 +13,16 @@
     <link media="all" type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/estilo-pUs.css">
 
-
 </head>
+
+
+<?php
+    $id = $_GET['id'];
+    $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
+    $consulta = "SELECT * FROM `usuarios` WHERE id = '$id'";
+    $ejecutar = mysqli_query($con,$consulta);
+    $row = mysqli_fetch_row($ejecutar);
+    ?>
 
 <body>
     <header class="header">
@@ -51,27 +59,26 @@
         <nav id="sidebar">
             <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar">
-                    <img src="img/f.jpg" alt="..." class="img-fluid rounded-circle">
+                    <img src="" alt="..." class="img-fluid rounded-circle">
                 </div>
                 <div class="title">
-                    <h1 class="h5">Jonathan Ramírez</h1>
-                    <p>Web Designer</p>
+                    <?php echo "<h1 class='h5'</h1> $row[1] $row[2]<br/>", 
+                                "<p>$row[4]</p>" ?>
                 </div>
 
             </div>
             <span class="heading">Menu</span>
             <ul class="list-unstyled">
-                <li><a href="principalUsuarios.php"><i class="fa fa-info-circle"></i>Bibliografía</a></li>
-                <li><a href="Mensajes.php"><i class="fa fa-comment"></i>Mensajes</a></li>
+                <li><a href="principalUsuarios.php?id=<?php echo $id ?>"><i class="fa fa-globe"></i>Presentación</a></li>
+                <li><a href="Mensajes.php?id=<?php echo $id ?>"><i class="fa fa-comment"></i>Mensajes</a></li>
                 <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"><i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
                         <li><a href="#"><i class="fa fa-photo"></i>Fotos</a></li>
                         <li><a href="#"><i class="fa fa-video-camera"></i>Videos</a></li>
                     </ul>
                 </li>
-                <!-- <li> <a href="#"> <i class="fa fa-photo"></i>Fotos</a></li>-->
-                <li><a href="Parametros.php"><i class="fa fa-cog"></i>Parametros</a></li>
-                <li class="active"><a href="#"><i class="fa fa-edit"></i>Editar Información</a></li>
+                <li><a href="Parametros.php?id=<?php echo $id ?>"><i class="fa fa-cog"></i>Parámetros</a></li>
+                <li class="active"><a href="editarPerfil.php?id=<?php echo $id ?>"><i class="fa fa-edit"></i>Editar Información</a></li>
                 <li><a href="login.php"><i class="fa fa-sign-out"></i>Cerrar Sesion</a></li>
             </ul>
         </nav>
@@ -82,78 +89,85 @@
                     <h2 class="h5 no-margin-bottom fa fa-edit"> Editar Perfil</h2>
                 </div>
             </div>
+            
+            <ul class="breadcrumb">
+                <div class="container-fluid">
+                    <li class="breadcrumb-item"><a href="principalUsuarios.php?id=<?php echo $id ?>">Perfil</a></li>
+                    <li class="breadcrumb-item active">Editar Info</li>
+                </div>
+             </ul>
 
             <section class="no-padding-top">
                 <div class="container-fluid">
                     <div class="row">
-                        <!-- Form Elements -->
+                        
                         <div class="col-lg-12">
                             <div class="block">
                                 <div class="title">
                                     <strong>Edite su información</strong>
                                 </div>
                                 <div class="block-body">
-                                    <form class="form-horizontal">
-                                       
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Nombre :</label>
+                                    <form method="POST" action="editar.php" class="form-horizontal">
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 form-control-label">Nombre :</label>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-user"></span>
-                                                        <input type="text" placeholder="" required class="form-control">
+                                                        <input type="text" placeholder="<?php echo $row[1] ?>" class="form-control">
                                                     </div>
-                                                </div>                                  
-                                            </div>                                            
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Apellidos :</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 form-control-label">Apellidos :</label>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-user"></span>
                                                         <input type="text" placeholder="" class="form-control">
                                                     </div>
-                                                </div>                                  
-                                            </div>                                            
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Nombre de Usuario:</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 form-control-label">Nombre de Usuario :</label>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-users"></span>
-                                                        <input type="text" disabled="" placeholder="jona" class="form-control">
+                                                        <input type="text" disabled="" placeholder="<?php echo $row[3] ?>" class="form-control">
                                                     </div>
-                                                </div>                                  
-                                            </div>                                            
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Correo :</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 form-control-label">Correo :</label>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-at"></span>
-                                                        <input type="email" disabled="" placeholder="jona@gmail.com" class="form-control">
+                                                        <input type="email" disabled="" placeholder="<?php echo $row[4] ?>" class="form-control">
                                                     </div>
-                                                </div>                                  
-                                            </div>                                            
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Contraseña :</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 form-control-label">Contraseña :</label>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-key"></span>
                                                         <input type="password" placeholder="" class="form-control">
                                                     </div>
-                                                </div>                                  
-                                            </div>                                            
-                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Sexo :</label>
-                                            <div class="col-sm-9">                                               
+                                            <label class="col-sm-2 form-control-label">Sexo :</label>
+                                            <div class="col-sm-8">
                                                 <div>
                                                     <input id="optionsRadios2" type="radio" value="Hombre" name="optionsRadios">
                                                     <label for="optionsRadios2">Hombre</label>
@@ -163,49 +177,41 @@
                                                     <label for="optionsRadios2">Mujer</label>
                                                 </div>
                                             </div>
-                                        </div>                                      
-                                        
+                                        </div>
+
                                         <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Dirección :</label>
+                                            <label class="col-sm-2 form-control-label">Teléfono :</label>
+                                            <div class="col-sm-5">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon fa fa-phone"></span>
+                                                        <input type="tel" placeholder="" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 form-control-label">Dirección :</label>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-map-marker"></span>
                                                         <textarea type="textarea" placeholder="" class="form-control"></textarea>
                                                     </div>
-                                                </div>                                  
-                                            </div>                                            
-                                        </div>
-
+                                                </div>
+                                            </div>
+                                        </div>                                     
+                                        
                                         <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Bibliografía :</label>
+                                            <label class="col-sm-2 form-control-label">Subir Foto :</label>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <div class="input-group">
-                                                        <span class="input-group-addon fa fa-info-circle"></span>
-                                                        <textarea type="textarea" placeholder="" class="form-control"></textarea>
+                                                        <span class="input-group-addon fa fa-image"></span>
+                                                        <input class="form-control" type="file" />
                                                     </div>
-                                                </div>                                  
-                                            </div>                                            
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Area :</label>
-                                            <div class="col-sm-5 select">
-                                                <select name="account" class="form-control">
-                                                    <option></option>
-                                                    <option>Jardinero</option>
-                                                    <option>Plomero</option>
-                                                    <option>Albañíl</option>
-                                                    <option>Pintor</option>
-                                                </select>
-                                            </div>                                            
-                                        </div>                               
-
-                                        <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Subir Foto :</label>
-                                            <div class="col-sm-9 ml-auto">                                  
-                                            <input type="file" />                                                                                     
+                                                </div>
                                             </div>
                                         </div>
 
@@ -214,7 +220,7 @@
                                         <div class="form-group row">
                                             <div class="col-sm-9 ml-auto">
                                                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                                                <button type="submit" class="btn btn-secondary">Cancelar</button>                                                
+                                                <button type="reset" class="btn btn-secondary">Cancelar</button>
                                             </div>
                                         </div>
                                     </form>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Editar Perfil</title>
+    <title>Cambio de Contraseña</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -78,8 +78,8 @@
                     </ul>
                 </li>
                 <li><a href="Parametros.php?id=<?php echo $id ?>"><i class="fa fa-cog"></i>Parámetros</a></li>
-                <li class="active"><a href="editarPerfil.php?id=<?php echo $id ?>"><i class="fa fa-edit"></i>Editar Información</a></li>
-                <li><a href="cambiarContrasena.php?id=<?php echo $id ?>"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a></li>
+                <li><a href="editarPerfil.php?id=<?php echo $id ?>"><i class="fa fa-edit"></i>Editar Información</a></li>
+                <li class="active"><a href="cambioContrasena.php?id=<?php echo $id ?>"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a></li>
                 <li><a href="login.php"><i class="fa fa-sign-out"></i>Cerrar Sesion</a></li>
             </ul>
         </nav>
@@ -87,14 +87,14 @@
         <div class="page-content">
             <div class="page-header">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom fa fa-edit"> Editar Perfil</h2>
+                    <h2 class="h5 no-margin-bottom fa fa-exchange"> Cambio de Contraseña</h2>
                 </div>
             </div>
             
             <ul class="breadcrumb">
                 <div class="container-fluid">
                     <li class="breadcrumb-item"><a href="principalUsuarios.php?id=<?php echo $id ?>">Perfil</a></li>
-                    <li class="breadcrumb-item active">Editar Info</li>
+                    <li class="breadcrumb-item active">Cambiar Contraseña</li>
                 </div>
              </ul>
 
@@ -105,113 +105,52 @@
                         <div class="col-lg-12">
                             <div class="block">
                                 <div class="title">
-                                    <strong>Edite su información</strong>
+                                    <strong>Cambie su contraseña</strong>
                                 </div>
                                 <div class="block-body">
-                                    <form method="POST" action="editar.php?id=<?php echo $id ?>" class="form-horizontal">
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 form-control-label">Nombre :</label>
-                                            <div class="col-sm-5">
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon fa fa-user"></span>
-                                                        <input type="text" name="nombre" placeholder="" value="<?php echo $row[1] ?>" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 form-control-label">Apellidos :</label>
-                                            <div class="col-sm-5">
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon fa fa-user"></span>
-                                                        <input type="text" name="apellido" placeholder="" value="<?php echo $row[2] ?>"class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 form-control-label">Nombre de Usuario :</label>
-                                            <div class="col-sm-5">
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon fa fa-users"></span>
-                                                        <input type="text" disabled="" placeholder="<?php echo $row[3] ?>" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 form-control-label">Correo :</label>
-                                            <div class="col-sm-5">
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon fa fa-at"></span>
-                                                        <input type="email" disabled="" placeholder="<?php echo $row[4] ?>" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                      
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 form-control-label">Sexo :</label>
-                                            <div class="col-sm-8">
-                                                <div>
-                                                    <input name="sexo" id="optionsRadios1" type="radio" value="Hombre" <?php if($row[6] == "Hombre"){ echo "checked=checked";} ?> />
-                                                    <label  for="optionsRadios1">Hombre</label>
-                                                </div>
-                                                <div>
-                                                    <input name="sexo" id="optionsRadios2" type="radio" value="Mujer" <?php if($row[6] == "Mujer"){ echo "checked=checked";} ?> />
-                                                    <label for="optionsRadios2">Mujer</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 form-control-label">Teléfono :</label>
-                                            <div class="col-sm-5">
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon fa fa-phone"></span>
-                                                        <input type="tel" name="telefono" placeholder="" value="<?php echo $row[7] ?>" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 form-control-label">Dirección :</label>
-                                            <div class="col-sm-5">
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon fa fa-map-marker"></span>
-                                                        <?php
-                                                        print "<textarea  name='direccion'  class='form-control'> $row[8] </textarea>";
-                                                        ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>                                     
+                                    <form method="POST" action="editarContra.php?id=<?php echo $id ?>" class="form-horizontal">
                                         
                                         <div class="form-group row">
-                                            <label class="col-sm-2 form-control-label">Subir Foto :</label>
+                                            <label class="col-sm-2 form-control-label">Contraseña Anterior :</label>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
                                                     <div class="input-group">
-                                                        <span class="input-group-addon fa fa-image"></span>
-                                                        <input class="form-control" type="file" />
+                                                        <span class="input-group-addon fa fa-key"></span>
+                                                        <input name="contraA" type="password" placeholder="" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 form-control-label">Contraseña Nueva :</label>
+                                            <div class="col-sm-5">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon fa fa-key"></span>
+                                                        <input name="contrasena" type="password" placeholder="" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>  
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 form-control-label"> Repita la Contraseña :</label>
+                                            <div class="col-sm-5">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon fa fa-key"></span>
+                                                        <input name="contrasenna"type="password" placeholder="" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                            
 
                                         <div class="line"></div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-9 ml-auto">
-                                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                                <button type="submit" class="btn btn-primary">Cambiar</button>
                                                 <button type="reset" class="btn btn-secondary">Cancelar</button>
                                             </div>
                                         </div>

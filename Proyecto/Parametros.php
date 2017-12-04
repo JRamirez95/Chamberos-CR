@@ -73,13 +73,15 @@ $row = mysqli_fetch_row($eje);
                             <a href="#"> <i class="fa fa-video-camera"></i>Videos</a>
                         </li>
                     </ul>
-                </li>
-                <!-- <li> <a href="#"> <i class="fa fa-photo"></i>Fotos</a></li>-->
+                </li>               
                 <li class="active">
                     <a href="Parametros.php?id=<?php echo $id ?>"> <i class="fa fa-cog"></i>Parámetros</a>
                 </li>
                 <li>
                     <a href="editarPerfil.php?id=<?php echo $id ?>"> <i class="fa fa-pencil"></i>Editar Perfil</a>
+                </li>
+                <li> 
+                    <a href="cambiarContrasena.php?id=<?php echo $id ?>"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a>
                 </li>
                 <li>
                     <a href="cerrarSesion.php"> <i class="fa fa-sign-out"></i>Cerrar Sesion</a>
@@ -111,7 +113,7 @@ $row = mysqli_fetch_row($eje);
                                     <strong>Agregue sus parámatros de trabajo</strong>
                                 </div>
                                 <div class="block-body">
-                                    <form class="form-horizontal" action="hi.php">
+                                    <form class="form-horizontal" action="">
 
                                         <div class="form-group row">
                                             <label class="col-sm-2 form-control-label">Areas de labor :</label>

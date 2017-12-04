@@ -40,8 +40,7 @@ if ($result->num_rows > 0) {
     $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 
     $id = ($row['id']); 
-
-    echo '<script language="javascript">alert("Bienveido!");</script>';   
+     
     echo "<script> window.open('editarPerfil.php?id=$id','_self')</script>";
   }else{
 
@@ -52,7 +51,6 @@ if ($result->num_rows > 0) {
    
     $id = ($row['id']);  
     
-    echo '<script language="javascript">alert("Bienveido!");</script>';   
     echo "<script> window.open('principalUsuarios.php?id=$id','_self')</script>";
   }   
 

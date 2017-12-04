@@ -6,8 +6,7 @@ $pass_db = "";
 $db_name = "chamberos";
 $tbl_name = "usuarios";
  
- $form_pass = $_POST['contrasena'];
- 
+ $form_pass = $_POST['contrasena']; 
  $hash = password_hash($form_pass, PASSWORD_BCRYPT); 
 
  $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
@@ -47,11 +46,10 @@ WHERE usuario = '$_POST[usuario]' ";
  echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
  echo "<h3>" . "Bienvenido: " . $_POST['email'] . "</h3>" . "\n\n";
  echo "<h4>" . "Hacer Login: " . "<a href='login.php'>Login</a>" . "</h4>"; 
- }
-
- else {
+ }else {
  echo "Error al crear el usuario." . $query . "<br>" . $conexion->error; 
-   }
+  }
+  
  }
  mysqli_close($conexion);
 ?>

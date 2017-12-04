@@ -1,27 +1,3 @@
-<?php
-session_start();
-
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-
-} else {
-   echo "Esta pagina es solo para usuarios registrados.<br>";
-   echo "<br><a href='login.php'>Login</a>";
-   echo "<br><br><a href='Registrarse.php'>Registrarme</a>";
-
-exit;
-}
-
-$now = time();
-
-if($now > $_SESSION['expire']) {
-session_destroy();
-
-echo "Su sesion a terminado,
-<a href='login.php'>Necesita Hacer Login</a>";
-exit;
-}
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -36,7 +12,7 @@ exit;
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <link media="all" type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/estilo-pUs.css">
-
+    
     <?php
     $id = $_GET['id'];
     $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
@@ -92,13 +68,15 @@ exit;
                             <a href="#"> <i class="fa fa-video-camera"></i>Videos</a>
                         </li>
                     </ul>
-                </li>
-                <!-- <li> <a href="#"> <i class="fa fa-photo"></i>Fotos</a></li>-->
+                </li>                
                 <li>
                     <a href="Parametros.php?id=<?php echo $id ?>"> <i class="fa fa-cog"></i>Parámetros</a>
                 </li>
                 <li>
                     <a href="editarPerfil.php?id=<?php echo $id ?>"> <i class="fa fa-pencil"></i>Editar Perfil</a>
+                </li>
+                <li> 
+                    <a href="cambiarContrasena.php?id=<?php echo $id ?>"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a>
                 </li>
                 <li>
                     <a href="cerrarSesion.php"> <i class="fa fa-sign-out"></i>Cerrar Sesion</a>
@@ -137,7 +115,7 @@ exit;
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <div class="input-group">   
-                                                            <?php echo "<input type='text' disabled='' placeholder='$row[4]' class='form-control'</>" ?>                                                       
+                                                            <?php echo "<input type='email' disabled='' placeholder='$row[4]' class='form-control'</>" ?>                                                       
                                                         </div>
                                                     </div>
                                                 </div>
@@ -147,7 +125,7 @@ exit;
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <div class="input-group">   
-                                                            <?php echo "<input type='text' disabled='' placeholder='$row[7]' class='form-control'</>" ?>                                                       
+                                                            <?php echo "<input type='tel' disabled='' placeholder='$row[7]' class='form-control'</>" ?>                                                       
                                                         </div>
                                                     </div>
                                                 </div>
@@ -158,6 +136,16 @@ exit;
                                                     <div class="form-group">
                                                         <div class="input-group">   
                                                             <?php echo "<input type='text' disabled='' placeholder='$row[8]' class='form-control'</>" ?>                                                       
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 form-control-label">Sexo :</label>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="input-group">   
+                                                            <?php echo "<input type='text' disabled='' placeholder='$row[6]' class='form-control'</>" ?>                                                       
                                                         </div>
                                                     </div>
                                                 </div>
@@ -198,7 +186,7 @@ exit;
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <div class="input-group">   
-                                                            <?php echo "<input type='text' disabled='' placeholder='' class='form-control'</>" ?>                                                       
+                                                            <?php echo "<input type='number' disabled='' placeholder='' class='form-control'</>" ?>                                                       
                                                         </div>
                                                     </div>
                                                 </div>

@@ -19,6 +19,9 @@
     $consulta = "SELECT * FROM `usuarios` WHERE id = '$id'";
     $ejecutar = mysqli_query($con,$consulta);
     $row = mysqli_fetch_row($ejecutar);
+
+    $result = "SELECT nombre FROM area INNER JOIN areausuario ON area.id = areausuario.idarea WHERE idusuario = $id";
+    $eje = mysqli_query($con,$result);    
     ?>
     
 </head>
@@ -45,7 +48,7 @@
 
         <nav id="sidebar">
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"><img src="fotosPerfil/<?php echo $row[9] ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
                     <?php echo "<h1 class='h5'</h1> $row[1] $row[2]<br/>", 
                                "<p>$row[4]</p>" ?>
@@ -62,10 +65,10 @@
                     <a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
                         <li>
-                            <a href="#"> <i class="fa fa-photo"></i>Fotos</a>
+                            <a href="Fotos.php?id=<?php echo $id ?>"> <i class="fa fa-photo"></i>Fotos</a>
                         </li>
                         <li>
-                            <a href="#"> <i class="fa fa-video-camera"></i>Videos</a>
+                            <a href="Videos.php?id=<?php echo $id ?>"> <i class="fa fa-video-camera"></i>Videos</a>
                         </li>
                     </ul>
                 </li>                
@@ -164,11 +167,13 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Areas de labor:</label>
                                                 <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="input-group">   
-                                                            <?php echo "<input type='text' disabled='' placeholder='' class='form-control'</>" ?>                                                       
-                                                        </div>
-                                                    </div>
+                                                <div class="i-checks">        
+                                                <?php
+                                                    while ($row = mysqli_fetch_array($eje)) {
+                                                        echo "<label class='fa fa-spinner fa-pulse'></label> $row[0]<br>";				
+                                                    }
+                                                ?>                                                
+                                            </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">

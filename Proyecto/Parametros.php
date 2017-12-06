@@ -19,6 +19,7 @@
 <?php
 $id = $_GET['id'];
 $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
+
 $consulta = "SELECT * FROM `area`";
 $ejecutar = mysqli_query($con,$consulta);
 
@@ -51,13 +52,14 @@ $row = mysqli_fetch_row($eje);
 
         <nav id="sidebar">
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"><img src="fotosPerfil/<?php echo $row[9] ?>" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
                 <?php echo "<h1 class='h5'</h1> $row[1] $row[2]<br/>", 
                     "<p>$row[4]</p>" ?>
                 </div>
 
-            </div><span class="heading">Menu</span>
+            </div>
+            <span class="heading">Menu</span>
             <ul class="list-unstyled">
                 <li><a href="principalUsuarios.php?id=<?php echo $id ?>"><i class="fa fa-globe"></i>Presentación</a></li>
                 <li>
@@ -67,10 +69,10 @@ $row = mysqli_fetch_row($eje);
                     <a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
                         <li>
-                            <a href="#"> <i class="fa fa-photo"></i>Fotos</a>
+                            <a href="Fotos.php?id=<?php echo $id ?>"> <i class="fa fa-photo"></i>Fotos</a>
                         </li>
                         <li>
-                            <a href="#"> <i class="fa fa-video-camera"></i>Videos</a>
+                            <a href="Videos.php?id=<?php echo $id ?>"> <i class="fa fa-video-camera"></i>Videos</a>
                         </li>
                     </ul>
                 </li>               
@@ -113,8 +115,8 @@ $row = mysqli_fetch_row($eje);
                                     <strong>Agregue sus parámatros de trabajo</strong>
                                 </div>
                                 <div class="block-body">
-                                    <form class="form-horizontal" action="">
-
+                                    <form method="POST" class="form-horizontal" action="param.php?id=<?php echo $id ?>">
+                                                
                                         <div class="form-group row">
                                             <label class="col-sm-2 form-control-label">Areas de labor :</label>
                                             <div class="col-sm-3">
@@ -195,27 +197,27 @@ $row = mysqli_fetch_row($eje);
                                                     -->
                                         <div class="form-group row">
                                             <label class="col-sm-2 form-control-label">Días disponibles :</label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-9" >
                                                 <label class="checkbox-inline">
-                                                    <input id="inlineCheckbox1" type="checkbox" value="option1"> Lunes 
+                                                    <input id="inlineCheckbox1" name="dia[]" type="checkbox" value="Lunes"> Lunes 
                                                 </label>
                                                 <label class="checkbox-inline">
-                                                    <input id="inlineCheckbox2" type="checkbox" value="option2"> Martes
+                                                    <input id="inlineCheckbox2" name="dia[]" type="checkbox" value="Martes"> Martes
                                                 </label>
                                                 <label class="checkbox-inline">
-                                                    <input id="inlineCheckbox3" type="checkbox" value="option3"> Miercoles
+                                                    <input id="inlineCheckbox3" name="dia[]" type="checkbox" value="Miercoles"> Miercoles
                                                 </label>
                                                 <label class="checkbox-inline">
-                                                    <input id="inlineCheckbox3" type="checkbox" value="option3"> Jueves
+                                                    <input id="inlineCheckbox3" name="dia[]" type="checkbox" value="Jueves"> Jueves
                                                 </label>
                                                 <label class="checkbox-inline">
-                                                    <input id="inlineCheckbox3" type="checkbox" value="option3"> Viernes
+                                                    <input id="inlineCheckbox3" name="dia[]" type="checkbox" value="Viernes"> Viernes
                                                 </label>
                                                 <label class="checkbox-inline">
-                                                    <input id="inlineCheckbox3" type="checkbox" value="option3"> Sabado
+                                                    <input id="inlineCheckbox3" name="dia[]" type="checkbox" value="sabado"> Sabado
                                                 </label>
                                                 <label class="checkbox-inline">
-                                                    <input id="inlineCheckbox3" type="checkbox" value="option3"> Domingo
+                                                    <input id="inlineCheckbox3" name="dia[]" type="checkbox" value="Domingo"> Domingo
                                                 </label>
                                             </div>
                                         </div>     

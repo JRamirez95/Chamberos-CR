@@ -20,7 +20,7 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand mx-auto" href="Inicio.html" style="color: black;">Cham-<span>-Beros</span></a>
+            <a class="navbar-brand mx-auto" href="Inicio.php" style="color: black;">Cham-<span>-Beros</span></a>
             <div class="collapse navbar-collapse" id="navbarCollapse1">
                 <ul class="navbar-nav ml-auto">
 

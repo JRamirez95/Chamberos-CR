@@ -469,10 +469,10 @@ nav#sidebar span.heading {
 }
 
 nav#sidebar .avatar {
-  min-width: 60px;
-  max-width: 60px;
-  min-height: 60px;
-  max-height: 60px;
+  min-width: 70px;
+  max-width: 70px;
+  min-height: 70px;
+  max-height: 70px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 15px;

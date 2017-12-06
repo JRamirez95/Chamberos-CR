@@ -59,7 +59,7 @@
         <nav id="sidebar">
             <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar">
-                    <img src="" alt="..." class="img-fluid rounded-circle">
+                    <img src="fotosPerfil/<?php echo $row[9] ?>" alt="..." class="img-fluid rounded-circle">
                 </div>
                 <div class="title">
                     <?php echo "<h1 class='h5'</h1> $row[1] $row[2]<br/>", 
@@ -73,8 +73,8 @@
                 <li><a href="Mensajes.php?id=<?php echo $id ?>"><i class="fa fa-comment"></i>Mensajes</a></li>
                 <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"><i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
-                        <li><a href="#"><i class="fa fa-photo"></i>Fotos</a></li>
-                        <li><a href="#"><i class="fa fa-video-camera"></i>Videos</a></li>
+                    <li><a href="Fotos.php?id=<?php echo $id ?>"> <i class="fa fa-photo"></i>Fotos</a></li>
+                    <li><a href="Videos.php?id=<?php echo $id ?>"> <i class="fa fa-video-camera"></i>Videos</a></li>
                     </ul>
                 </li>
                 <li><a href="Parametros.php?id=<?php echo $id ?>"><i class="fa fa-cog"></i>Parámetros</a></li>
@@ -94,7 +94,7 @@
             <ul class="breadcrumb">
                 <div class="container-fluid">
                     <li class="breadcrumb-item"><a href="principalUsuarios.php?id=<?php echo $id ?>">Perfil</a></li>
-                    <li class="breadcrumb-item active">Editar Info</li>
+                    <li class="breadcrumb-item active">Editar Información</li>
                 </div>
              </ul>
 
@@ -108,7 +108,7 @@
                                     <strong>Edite su información</strong>
                                 </div>
                                 <div class="block-body">
-                                    <form method="POST" action="editar.php?id=<?php echo $id ?>" class="form-horizontal">
+                                    <form method="POST" action="editar.php?id=<?php echo $id ?>" enctype="multipart/form-data" class="form-horizontal">
 
                                         <div class="form-group row">
                                             <label class="col-sm-2 form-control-label">Nombre :</label>
@@ -201,7 +201,7 @@
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-image"></span>
-                                                        <input class="form-control" type="file" />
+                                                        <input class="form-control" name="imagen" type="file" />
                                                     </div>
                                                 </div>
                                             </div>

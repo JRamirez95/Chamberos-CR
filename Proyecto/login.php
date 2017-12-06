@@ -25,7 +25,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="Inicio.html" style="color:black;">Inicio</a>
+                            <a class="nav-link" href="Inicio.php" style="color:black;">Inicio</a>
                         </li>
                     </ul>
                 </div>

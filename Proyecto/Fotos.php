@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mensajes</title>
+    <title>Fotos</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -60,13 +60,13 @@ $row = mysqli_fetch_row($eje);
             <span class="heading">Menu</span>
             <ul class="list-unstyled">
             <li><a href="principalUsuarios.php?id=<?php echo $id ?>"><i class="fa fa-globe"></i>Presentación</a></li>
-            <li class="active">
+            <li>
                 <a href="Mensajes.php?id=<?php echo $id ?>"> <i class="fa fa-comment"></i>Mensajes</a>
             </li>
             <li>
                 <a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-film"></i>Multimedia </a>
                 <ul id="dashvariants" class="collapse list-unstyled">
-                    <li>
+                    <li class="active">
                         <a href="Fotos.php?id=<?php echo $id ?>"> <i class="fa fa-photo"></i>Fotos</a>
                     </li>
                     <li>
@@ -92,9 +92,17 @@ $row = mysqli_fetch_row($eje);
         <div class="page-content">
             <div class="page-header">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom fa fa-comment"> Mensajes</h2>
+                    <h2 class="h5 no-margin-bottom fa fa-photo"> Fotos</h2>
                 </div>
             </div>
+
+            <ul class="breadcrumb">
+                <div class="container-fluid">
+                    <li class="breadcrumb-item"><a href="principalUsuarios.php?id=<?php echo $id ?>">Perfil</a></li>
+                    <li class="breadcrumb-item active">Multimedia</li>
+                    <li class="breadcrumb-item active">Foto</li>
+                </div>
+            </ul>
 
         </div>
     </div>

@@ -1,5 +1,8 @@
 <?php
+session_start();
+?>
 
+<?php
 $host_db = "localhost";
 $user_db = "root";
 $pass_db = "";
@@ -14,9 +17,7 @@ $tbl_name = "trabjaousuario";
 }
 
 
-$id = $_GET['id'];
-
-
+$id = $_SESSION['id'];
 
 if(isset($_POST['idarea'])){
 
@@ -34,13 +35,14 @@ if(isset($_POST['dia'])){
     }        
  }
 
- if ($conexion === TRUE){
-    echo '<script language="javascript">alert("Datos guardados");</script>';
-
- }else{
-    echo '<script language="javascript">alert("Error al intentar agregar parametros");</script>';
- }
-    
+ $query = "INSERT INTO trabajousuario (idusuario, tipo, precio)
+            VALUES ($id, '$_POST[tipo]', $_POST[precio])";
+ 
+  if ($conexion->query($query) === TRUE) { 
+   echo '<script language="javascript">alert("Parámetros agregados");</script>';
+   echo "<script> window.open('principalUsuarios.php','_self')</script>";
+  }
+ 
  
  mysqli_close($conexion);
 ?>

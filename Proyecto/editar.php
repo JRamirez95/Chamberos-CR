@@ -1,5 +1,8 @@
 <?php
+session_start();
+?>
 
+<?php
 $host_db = "localhost";
 $user_db = "root";
 $pass_db = "";
@@ -11,7 +14,7 @@ $tbl_name = "usuarios";
  if ($conexion->connect_error) {
  die("La conexion falló: " . $conexion->connect_error);
 }
-$id = $_GET['id'];
+$id = $_SESSION['id'];
 
 $nombre_img = $_FILES['imagen']['name'];
 $tipo = $_FILES['imagen']['type'];
@@ -43,7 +46,7 @@ if ($nombre_img == !NULL)
 
  if ($conexion->query($query) === TRUE) { 
   echo '<script language="javascript">alert("Datos guardados");</script>';
-  echo "<script> window.open('editarPerfil.php?id=$id','_self')</script>";
+  echo "<script> window.open('editarPerfil.php','_self')</script>";
  }
 
  else {

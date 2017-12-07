@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+} else {
+   echo "Esta pagina es solo para usuarios registrados.<br>";
+   echo "<br><a href='login.php'>Login</a>";
+   echo "<br><br><a href='Registrarse.php'>Registrarme</a>";
+
+exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +29,9 @@
     <link rel="stylesheet" href="css/estilo-pUs.css">
     
     <?php
-    $id = $_GET['id'];
+
+     $id = $_SESSION['id'];     
+
     $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
     $consulta = "SELECT * FROM `usuarios` WHERE id = '$id'";
     $ejecutar = mysqli_query($con,$consulta);
@@ -22,6 +39,14 @@
 
     $result = "SELECT nombre FROM area INNER JOIN areausuario ON area.id = areausuario.idarea WHERE idusuario = $id";
     $eje = mysqli_query($con,$result);    
+
+    $result = "SELECT * FROM diasusuario WHERE idus = $id";
+    $dias = mysqli_query($con,$result);   
+
+    $result = "SELECT * FROM trabajousuario WHERE idusuario = $id";
+    $par = mysqli_query($con,$result);
+    $param = mysqli_fetch_row($par);
+
     ?>
     
 </head>
@@ -57,29 +82,29 @@
 
             </div><span class="heading">Menu</span>
             <ul class="list-unstyled">
-                <li class="active"><a href="principalUsuarios.php?id=<?php echo $id?>"><i class="fa fa-globe"></i>Presentación</a></li>
+                <li class="active"><a href="principalUsuarios.php"><i class="fa fa-globe"></i>Presentación</a></li>
                 <li>
-                    <a href="Mensajes.php?id=<?php echo $id ?>"> <i class="fa fa-comment"></i>Mensajes</a>
+                    <a href="Mensajes.php"> <i class="fa fa-comment"></i>Mensajes</a>
                 </li>
                 <li>
                     <a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
                         <li>
-                            <a href="Fotos.php?id=<?php echo $id ?>"> <i class="fa fa-photo"></i>Fotos</a>
+                            <a href="Fotos.php"> <i class="fa fa-photo"></i>Fotos</a>
                         </li>
                         <li>
-                            <a href="Videos.php?id=<?php echo $id ?>"> <i class="fa fa-video-camera"></i>Videos</a>
+                            <a href="Videos.php"> <i class="fa fa-video-camera"></i>Videos</a>
                         </li>
                     </ul>
                 </li>                
                 <li>
-                    <a href="Parametros.php?id=<?php echo $id ?>"> <i class="fa fa-cog"></i>Parámetros</a>
+                    <a href="Parametros.php"> <i class="fa fa-cog"></i>Parámetros</a>
                 </li>
                 <li>
-                    <a href="editarPerfil.php?id=<?php echo $id ?>"> <i class="fa fa-pencil"></i>Editar Perfil</a>
+                    <a href="editarPerfil.php"> <i class="fa fa-pencil"></i>Editar Perfil</a>
                 </li>
                 <li> 
-                    <a href="cambiarContrasena.php?id=<?php echo $id ?>"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a>
+                    <a href="cambiarContrasena.php"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a>
                 </li>
                 <li>
                     <a href="cerrarSesion.php"> <i class="fa fa-sign-out"></i>Cerrar Sesion</a>
@@ -167,43 +192,41 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Areas de labor:</label>
                                                 <div class="col-sm-6">
-                                                <div class="i-checks">        
+                                                <div class="i-checks" style='color:White;'>        
                                                 <?php
                                                     while ($row = mysqli_fetch_array($eje)) {
                                                         echo "<label class='fa fa-spinner fa-pulse'></label> $row[0]<br>";				
                                                     }
                                                 ?>                                                
-                                            </div>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Tipo de trabajo:</label>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="input-group">   
-                                                            <?php echo "<input type='text' disabled='' placeholder='' class='form-control'</>" ?>                                                       
-                                                        </div>
-                                                    </div>
+                                                <div class="col-sm-6">                                                    
+                                                    <div class="i-checks" style='color:White;'>   
+                                                        <?php echo "<label class='fa fa-clock-o'></label> $param[2]" ?>                                                       
+                                                    </div>                                                    
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Precio por hora:</label>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="input-group">   
-                                                            <?php echo "<input type='number' disabled='' placeholder='' class='form-control'</>" ?>                                                       
-                                                        </div>
-                                                    </div>
+                                                <div class="col-sm-6">                                                    
+                                                    <div class="i-checks" style='color:White;'>   
+                                                        <?php echo "<label class='fa fa-dollar'></label> $param[3]" ?>                                                       
+                                                    </div>                                                    
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Disponibilidad:</label>
                                                 <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="input-group">   
-                                                            <?php echo "<input type='text' disabled='' placeholder='' class='form-control'</>" ?>                                                       
-                                                        </div>
-                                                    </div>
+                                                <div class="i-checks" style='color:White;'>        
+                                                <?php
+                                                    while ($row = mysqli_fetch_array($dias)) {                                                       
+                                                        echo "<label class='fa fa-check'></label> $row[2]<br>";				
+                                                    }
+                                                ?>                                                
+                                                </div>
                                                 </div>
                                             </div>                                         
                                         </form>

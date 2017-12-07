@@ -1,5 +1,8 @@
 <?php
+session_start();
+?>
 
+<?php
 $host_db = "localhost";
 $user_db = "root";
 $pass_db = "";
@@ -15,7 +18,7 @@ $hash = password_hash($form_pass, PASSWORD_BCRYPT);
  if ($conexion->connect_error) {
  die("La conexion falló: " . $conexion->connect_error);
 }
-$id = $_GET['id'];
+$id = $_SESSION['id'];
 
 $contraA = $_POST['contraA'];
 $contrasena = $_POST['contrasena'];

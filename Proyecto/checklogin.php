@@ -29,33 +29,36 @@ $estado = 'nuevo';
 if ($result->num_rows > 0) {     
 }
  $row = $result->fetch_array(MYSQLI_ASSOC);
-
+ 
  if (password_verify($contrasena, $row['contrasena'])) { 
+
+  $id = ($row['id']); 
 
   if($row['estado'] == $estado){
 
     $_SESSION['loggedin'] = true;
     $_SESSION['email'] = $email;
+    $_SESSION['id'] = $id;
     $_SESSION['start'] = time();
     $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 
-    $id = ($row['id']); 
+    
      
-    echo "<script> window.open('editarPerfil.php?id=$id','_self')</script>";
-  }else{
+    echo "<script> window.open('editarPerfil.php','_self')</script>";
+  }else{ 
 
     $_SESSION['loggedin'] = true;
     $_SESSION['email'] = $email;
+    $_SESSION['id'] = $id;
     $_SESSION['start'] = time();
     $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);   
-   
-    $id = ($row['id']);  
     
-    echo "<script> window.open('principalUsuarios.php?id=$id','_self')</script>";
+    echo "<script> window.open('principalUsuarios.php','_self')</script>";
   }   
 
  } else {    
    echo '<script language="javascript">alert("Email o Contraseña estan incorrectos.");</script>'; 
+
    echo "<script> window.open('login.php','_self')</script>";
   
    

@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+} else {
+   echo "Esta pagina es solo para usuarios registrados.<br>";
+   echo "<br><a href='login.php'>Login</a>";
+   echo "<br><br><a href='Registrarse.php'>Registrarme</a>";
+
+exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +32,9 @@
 
 
 <?php
-    $id = $_GET['id'];
+
+    $id = $_SESSION['id'];
+
     $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
     $consulta = "SELECT * FROM `usuarios` WHERE id = '$id'";
     $ejecutar = mysqli_query($con,$consulta);
@@ -69,17 +86,17 @@
             </div>
             <span class="heading">Menu</span>
             <ul class="list-unstyled">
-                <li><a href="principalUsuarios.php?id=<?php echo $id ?>"><i class="fa fa-globe"></i>Presentación</a></li>
-                <li><a href="Mensajes.php?id=<?php echo $id ?>"><i class="fa fa-comment"></i>Mensajes</a></li>
+                <li><a href="principalUsuarios.php"><i class="fa fa-globe"></i>Presentación</a></li>
+                <li><a href="Mensajes.php"><i class="fa fa-comment"></i>Mensajes</a></li>
                 <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"><i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
-                    <li><a href="Fotos.php?id=<?php echo $id ?>"> <i class="fa fa-photo"></i>Fotos</a></li>
+                    <li><a href="Fotos.php"> <i class="fa fa-photo"></i>Fotos</a></li>
                     <li><a href="Videos.php?id=<?php echo $id ?>"> <i class="fa fa-video-camera"></i>Videos</a></li>
                     </ul>
                 </li>
-                <li><a href="Parametros.php?id=<?php echo $id ?>"><i class="fa fa-cog"></i>Parámetros</a></li>
-                <li class="active"><a href="editarPerfil.php?id=<?php echo $id ?>"><i class="fa fa-edit"></i>Editar Información</a></li>
-                <li><a href="cambiarContrasena.php?id=<?php echo $id ?>"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a></li>
+                <li><a href="Parametros.php"><i class="fa fa-cog"></i>Parámetros</a></li>
+                <li class="active"><a href="editarPerfil.php"><i class="fa fa-edit"></i>Editar Información</a></li>
+                <li><a href="cambiarContrasena.php"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a></li>
                 <li><a href="login.php"><i class="fa fa-sign-out"></i>Cerrar Sesion</a></li>
             </ul>
         </nav>
@@ -93,7 +110,7 @@
             
             <ul class="breadcrumb">
                 <div class="container-fluid">
-                    <li class="breadcrumb-item"><a href="principalUsuarios.php?id=<?php echo $id ?>">Perfil</a></li>
+                    <li class="breadcrumb-item"><a href="principalUsuarios.php">Perfil</a></li>
                     <li class="breadcrumb-item active">Editar Información</li>
                 </div>
              </ul>
@@ -108,7 +125,7 @@
                                     <strong>Edite su información</strong>
                                 </div>
                                 <div class="block-body">
-                                    <form method="POST" action="editar.php?id=<?php echo $id ?>" enctype="multipart/form-data" class="form-horizontal">
+                                    <form method="POST" action="editar.php" enctype="multipart/form-data" class="form-horizontal">
 
                                         <div class="form-group row">
                                             <label class="col-sm-2 form-control-label">Nombre :</label>

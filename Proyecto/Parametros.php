@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+} else {
+   echo "Esta pagina es solo para usuarios registrados.<br>";
+   echo "<br><a href='login.php'>Login</a>";
+   echo "<br><br><a href='Registrarse.php'>Registrarme</a>";
+
+exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,17 +32,16 @@
 
 
 <?php
-$id = $_GET['id'];
-$con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
+    $id = $_SESSION['id'];
 
-$consulta = "SELECT * FROM `area`";
-$ejecutar = mysqli_query($con,$consulta);
+    $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
+    $consulta = "SELECT * FROM `area`";
+    $ejecutar = mysqli_query($con,$consulta);
 
-
-$result = "SELECT * FROM `usuarios` WHERE id = '$id'";
-$eje = mysqli_query($con,$result);
-$row = mysqli_fetch_row($eje);
- ?>
+    $result = "SELECT * FROM `usuarios` WHERE id = '$id'";
+    $eje = mysqli_query($con,$result);
+    $row = mysqli_fetch_row($eje);
+?>
 
 <body>
     <header class="header">
@@ -61,29 +75,29 @@ $row = mysqli_fetch_row($eje);
             </div>
             <span class="heading">Menu</span>
             <ul class="list-unstyled">
-                <li><a href="principalUsuarios.php?id=<?php echo $id ?>"><i class="fa fa-globe"></i>Presentación</a></li>
+                <li><a href="principalUsuarios.php"><i class="fa fa-globe"></i>Presentación</a></li>
                 <li>
-                    <a href="Mensajes.php?id=<?php echo $id ?>"> <i class="fa fa-comment"></i>Mensajes</a>
+                    <a href="Mensajes.php"> <i class="fa fa-comment"></i>Mensajes</a>
                 </li>
                 <li>
                     <a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
                         <li>
-                            <a href="Fotos.php?id=<?php echo $id ?>"> <i class="fa fa-photo"></i>Fotos</a>
+                            <a href="Fotos.php"> <i class="fa fa-photo"></i>Fotos</a>
                         </li>
                         <li>
-                            <a href="Videos.php?id=<?php echo $id ?>"> <i class="fa fa-video-camera"></i>Videos</a>
+                            <a href="Videos.php"> <i class="fa fa-video-camera"></i>Videos</a>
                         </li>
                     </ul>
                 </li>               
                 <li class="active">
-                    <a href="Parametros.php?id=<?php echo $id ?>"> <i class="fa fa-cog"></i>Parámetros</a>
+                    <a href="Parametros.php"> <i class="fa fa-cog"></i>Parámetros</a>
                 </li>
                 <li>
-                    <a href="editarPerfil.php?id=<?php echo $id ?>"> <i class="fa fa-pencil"></i>Editar Perfil</a>
+                    <a href="editarPerfil.php"> <i class="fa fa-pencil"></i>Editar Perfil</a>
                 </li>
                 <li> 
-                    <a href="cambiarContrasena.php?id=<?php echo $id ?>"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a>
+                    <a href="cambiarContrasena.php"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a>
                 </li>
                 <li>
                     <a href="cerrarSesion.php"> <i class="fa fa-sign-out"></i>Cerrar Sesion</a>
@@ -100,7 +114,7 @@ $row = mysqli_fetch_row($eje);
 
             <ul class="breadcrumb">
                 <div class="container-fluid">
-                    <li class="breadcrumb-item"><a href="principalUsuarios.php?id=<?php echo $id ?>">Perfil</a></li>
+                    <li class="breadcrumb-item"><a href="principalUsuarios.php">Perfil</a></li>
                     <li class="breadcrumb-item active">Parámetros</li>
                 </div>
              </ul>
@@ -115,7 +129,7 @@ $row = mysqli_fetch_row($eje);
                                     <strong>Agregue sus parámatros de trabajo</strong>
                                 </div>
                                 <div class="block-body">
-                                    <form method="POST" class="form-horizontal" action="param.php?id=<?php echo $id ?>">
+                                    <form method="POST" class="form-horizontal" action="param.php">
                                                 
                                         <div class="form-group row">
                                             <label class="col-sm-2 form-control-label">Areas de labor :</label>
@@ -134,16 +148,16 @@ $row = mysqli_fetch_row($eje);
                                         <label class="col-sm-2 form-control-label">Tipo de trabajo :</label>
                                             <div class="col-sm-3">
                                                 <div class="i-checks">
-                                                    <input id="radioCustom1" type="radio" value="Por hora" name="a" class="radio-template">
+                                                    <input onclick="activar()" id="radioCustom1" type="radio" value="Por hora" name="tipo" class="radio-template">
                                                     <label for="radioCustom1">Por hora</label>
                                                 </div>
                                                 <div class="i-checks">
-                                                    <input id="radioCustom2" type="radio"  value="Por contrato" name="a" class="radio-template">
+                                                    <input onclick="activar()" id="radioCustom2" type="radio"  value="Por contrato" name="tipo" class="radio-template">
                                                     <label for="radioCustom2">Por contrato</label>
                                                 </div>
                                                 <div class="i-checks">
-                                                    <input id="radioCustom2" type="radio"  value="Ambas" name="a" class="radio-template">
-                                                    <label for="radioCustom2">Ambas</label>
+                                                    <input onclick="activar()" id="radioCustom3" type="radio"  value="Ambas" name="tipo" class="radio-template">
+                                                    <label for="radioCustom3">Ambas</label>
                                                 </div>
                                             </div> 
                                         </div> 
@@ -154,7 +168,7 @@ $row = mysqli_fetch_row($eje);
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-dollar"></span>
-                                                        <input type="number" disabled="" placeholder="" class="form-control">
+                                                        <input type="number" name="precio" id="precio" disabled="" placeholder="" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,7 +241,7 @@ $row = mysqli_fetch_row($eje);
                                         <div class="form-group row">
                                             <div class="col-sm-9 ml-auto">
                                                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                                                <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                                <button onclick="activar()" type="reset" class="btn btn-secondary">Cancelar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -246,6 +260,7 @@ $row = mysqli_fetch_row($eje);
     </script>
     <script src="css/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/usuario.js"></script>
+    <script src="js/param.js"></script>
 </body>
 
 </html>

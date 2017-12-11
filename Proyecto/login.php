@@ -40,7 +40,7 @@
                 </h3>
                 <div class="row omb_row-sm-offset-3 omb_socialButtons">
                     <div class="col-xs-4 col-sm-6">
-                        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+                        <a href="fb-login.php"  class="btn btn-lg btn-block omb_btn-facebook">
                             <i class="fa fa-facebook visible-xs"></i>
                             <span class="hidden-xs">Facebook</span>
                         </a>

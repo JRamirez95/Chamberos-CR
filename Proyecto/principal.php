@@ -39,7 +39,7 @@
                     <div class="col-md-8 col-md-offset-3">
 
                         <!-- Search Form -->
-                        <form role="form" action="ConfigurarServicio.html" methos="post">
+                        <form role="form" action="ConfigurarServicio.php" methos="post">
 
                             <!-- Search Field -->
                             <div class="row">

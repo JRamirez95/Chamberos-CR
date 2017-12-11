@@ -63,7 +63,7 @@ exit;
 
                 <ul class="right-menu list-inline no-margin-bottom">
                     <li class="list-inline-item logout">
-                        <a id="logout" href="login.php" class="nav-link">Cerrar Sesion
+                        <a id="logout" href="cerrarSesion.php" class="nav-link">Cerrar Sesion
                             <i class="fa fa-sign-out"></i>
                         </a>
                     </li>
@@ -97,7 +97,7 @@ exit;
                 <li><a href="Parametros.php"><i class="fa fa-cog"></i>Parámetros</a></li>
                 <li class="active"><a href="editarPerfil.php"><i class="fa fa-edit"></i>Editar Información</a></li>
                 <li><a href="cambiarContrasena.php"> <i class="fa fa-exchange"></i>Cambiar Contraseña</a></li>
-                <li><a href="login.php"><i class="fa fa-sign-out"></i>Cerrar Sesion</a></li>
+                <li><a href="cerrarSesion.php"><i class="fa fa-sign-out"></i>Cerrar Sesion</a></li>
             </ul>
         </nav>
 

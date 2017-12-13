@@ -73,9 +73,7 @@ exit;
 
         <nav id="sidebar">
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar">
-                    <img src="fotosPerfil/<?php echo $row[9] ?>" alt="..." class="img-fluid rounded-circle">
-                </div>
+            <div class="avatar center-block img-thumbnail" style="background-image: url(fotosPerfil/<?php echo $row[11] ?>)"  alt="..."></div>
                 <div class="title">
                     <?php echo "<h1 class='h5'</h1> $row[1] $row[2]<br/>", 
                                 "<p>$row[4]</p>" ?>

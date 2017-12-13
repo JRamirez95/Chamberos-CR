@@ -171,7 +171,7 @@
                         <p><i class="fa fa-envelope mr-3"></i> info@chamberos.com</p>
                         <p><i class="fa fa-phone mr-3"></i> + 98 765 432 11</p>
                         <p><i class="fa fa-print mr-3"></i> + 98 765 432 10</p>
-                        <p><a href="Contactenos.html" class="btn btn-transparent-white btn-capsul">Enviar Mensaje</a></p>
+                        <p><a href="" class="btn btn-transparent-white btn-capsul">Enviar Mensaje</a></p>
                     </div>
 
                 </div>

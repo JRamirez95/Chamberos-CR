@@ -38,11 +38,16 @@ if ($nombre_img == !NULL)
     {
        //si no cumple con el formato
        echo "No se puede subir una imagen con ese formato ";
-    }
+    }    
 } 
+else
+{
+  $nombre_img = "imgProfile.png";
+}
 
 
- $query = "UPDATE `usuarios` SET nombre = '$_POST[nombre]', apellido = '$_POST[apellido]', sexo = '$_POST[sexo]', telefono = '$_POST[telefono]', direccion = '$_POST[direccion]', foto = '$nombre_img', estado = 'activo' WHERE id = $id";
+ $query = "UPDATE `usuarios` SET nombre = '$_POST[nombre]', apellido = '$_POST[apellido]', sexo = '$_POST[sexo]', telefono = '$_POST[telefono]', idprovincia = '$_POST[id_provincia]', idcanton = '$_POST[id_canton]', iddistrito = '$_POST[id_distrito]',  foto = '$nombre_img', estado = 'activo' WHERE id = $id";
+
 
  if ($conexion->query($query) === TRUE) { 
   echo '<script language="javascript">alert("Datos guardados");</script>';

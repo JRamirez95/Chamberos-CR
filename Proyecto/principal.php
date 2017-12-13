@@ -1,3 +1,6 @@
+<?php
+   session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +13,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link media="all" type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/estilos.css">
+
+    <?php            
+        $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
+        mysqli_set_charset($con,"utf8");
+        $consulta = "SELECT * FROM provincia";         
+        $provincias = mysqli_query($con,$consulta);        
+    ?>
 
 </head>
 
@@ -39,25 +49,34 @@
                     <div class="col-md-8 col-md-offset-3">
 
                         <!-- Search Form -->
-                        <form role="form" action="ConfigurarServicio.php" methos="post">
-
+                        <form role="form" action="ConfigurarServicio.php" method="post">            
                             <!-- Search Field -->
                             <div class="row">
                                 <h1 class="text-center">Busca tu chambero ideal</h1>
-                                <p><strong>Busca entre miles de de chamberos y haz que llegar a casa sea increíble.</strong></p>
-                                <div class="form-group col-md-8">
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" name="search" placeholder="Escribe tu ubicación" />
-                                        <span class="input-group-btn">
+                                <p><strong>Busca entre miles de de chamberos y haz que llegar a casa sea increíble.</strong></p> 
+                                <br>
+                                <p><strong>Selecciona la provincia en la que desea buscar.</strong></p> 
+                            </div> 
+                            <div class="form-group row">                        
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                             <select class="form-control" name="id_provincia">                                                                       
+                                                <?php
+                                                 while ($row = mysqli_fetch_array($provincias)) {
+                                                    echo "<option value='$row[0]'> $row[1] </option>";                                                        
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>                                            
+                                        <div class="col-md-2">
                                             <button class="btn btn-success" type="submit">
-                                                <span class="glyphicon glyphicon-search" aria-hidden="true"><span style="margin-left:10px;">Buscar</span></span>
-                                        </button>
-                                        </span>
-
+                                                <span class="fa fa-search" aria-hidden="true"><span style="margin-left:10px;">Buscar</span></span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            </div>                                           
                         </form>
                         <!-- End of Search Form -->
 

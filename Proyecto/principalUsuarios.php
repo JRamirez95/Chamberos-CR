@@ -30,17 +30,23 @@ exit;
     
     <?php
 
-     $id = $_SESSION['id'];     
-
+    $id = $_SESSION['id'];
+     
+    
     $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
     
-    $consulta = "SELECT * FROM `usuarios` WHERE id = '$id'";
+    $consulta = "SELECT u.nombre, u.apellido, u.email, u.sexo, u.telefono, p.provincia, c.canton, d.distrito, u.foto FROM usuarios u, provincia p, canton c, distrito d WHERE u.idprovincia = p.idp AND u.idcanton = c.id AND u.iddistrito = d.id AND u.id = '$id'";
+    
+    mysqli_set_charset($con,"utf8");
+
     $ejecutar = mysqli_query($con,$consulta);
+    
     $row = mysqli_fetch_row($ejecutar);
-
+    
+    
     $result = "SELECT nombre FROM area INNER JOIN areausuario ON area.id = areausuario.idarea WHERE idusuario = $id";
-    $eje = mysqli_query($con,$result);    
-
+    $eje = mysqli_query($con,$result);
+    
     $result = "SELECT * FROM diasusuario WHERE idus = $id";
     $dias = mysqli_query($con,$result);   
 
@@ -48,10 +54,13 @@ exit;
     $par = mysqli_query($con,$result);
     $param = mysqli_fetch_row($par);
 
+   
     ?>
     
 </head>
 <body>
+
+  </script>    
     <header class="header">
         <nav class="navbar navbar-expand-lg">
 
@@ -74,28 +83,24 @@ exit;
 
         <nav id="sidebar">
             <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar center-block img-thumbnail" style="background-image: url(fotosPerfil/<?php echo $row[11] ?>)"  alt="..."></div>
+            <div class="avatar center-block img-thumbnail" style="background-image: url(fotosPerfil/<?php echo $row[8] ?>)"  alt="..."></div>
                 <div class="title">
-                    <?php echo "<h1 class='h5'</h1> $row[1] $row[2]<br/>", 
-                               "<p>$row[4]</p>" ?>
+                    <?php echo "<h1 class='h5'</h1> $row[0] $row[1]<br/>", 
+                               "<p>$row[2]</p>" ?>
                     
                 </div>
 
             </div><span class="heading">Menu</span>
             <ul class="list-unstyled">
                 <li class="active"><a href="principalUsuarios.php"><i class="fa fa-globe"></i>Presentación</a></li>
-                <li>
-                    <a href="Mensajes.php"> <i class="fa fa-comment"></i>Mensajes</a>
-                </li>
+             
                 <li>
                     <a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
                         <li>
                             <a href="Fotos.php"> <i class="fa fa-photo"></i>Fotos</a>
                         </li>
-                        <li>
-                            <a href="Videos.php"> <i class="fa fa-video-camera"></i>Videos</a>
-                        </li>
+                        
                     </ul>
                 </li>                
                 <li>
@@ -131,50 +136,50 @@ exit;
                                         <form class="form-horizontal">
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Nombre :</label>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-8">
                                                     <div class="form-group">
                                                         <div class="input-group">   
-                                                            <?php echo "<input type='text' disabled='' placeholder='$row[1] $row[2]' class='form-control'</>" ?>                                                       
+                                                            <?php echo "<input type='text' disabled='' placeholder='$row[0] $row[1]' class='form-control'</>" ?>                                                       
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Correo :</label>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-8">
                                                     <div class="form-group">
                                                         <div class="input-group">   
-                                                            <?php echo "<input type='email' disabled='' placeholder='$row[4]' class='form-control'</>" ?>                                                       
+                                                            <?php echo "<input type='email' disabled='' placeholder='$row[2]' class='form-control'</>" ?>                                                       
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Teléfono :</label>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-8">
                                                     <div class="form-group">
                                                         <div class="input-group">   
-                                                            <?php echo "<input type='tel' disabled='' placeholder='$row[7]' class='form-control'</>" ?>                                                       
+                                                            <?php echo "<input type='tel' disabled='' placeholder='$row[4]' class='form-control'</>" ?>                                                       
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Dirección :</label>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-8">
                                                     <div class="form-group">
                                                         <div class="input-group">   
-                                                            <?php echo "<input type='text' disabled='' placeholder='$row[8]' class='form-control'</>" ?>                                                       
+                                                            <?php echo "<textarea disabled='' class='form-control'>$row[5], $row[6], $row[7]</textarea>" ?>                                                       
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>                                            
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Sexo :</label>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-8">
                                                     <div class="form-group">
                                                         <div class="input-group">   
-                                                            <?php echo "<input type='text' disabled='' placeholder='$row[6]' class='form-control'</>" ?>                                                       
+                                                            <?php echo "<input type='text' disabled='' placeholder='$row[3]' class='form-control'</>" ?>                                                       
                                                         </div>
                                                     </div>
                                                 </div>

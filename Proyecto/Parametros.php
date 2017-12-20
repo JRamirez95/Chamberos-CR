@@ -35,6 +35,7 @@ exit;
     $id = $_SESSION['id'];
 
     $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
+    mysqli_set_charset($con,"utf8");
     $consulta = "SELECT * FROM `area`";
     $ejecutar = mysqli_query($con,$consulta);
 
@@ -76,18 +77,14 @@ exit;
             <span class="heading">Menu</span>
             <ul class="list-unstyled">
                 <li><a href="principalUsuarios.php"><i class="fa fa-globe"></i>Presentación</a></li>
-                <li>
-                    <a href="Mensajes.php"> <i class="fa fa-comment"></i>Mensajes</a>
-                </li>
+               
                 <li>
                     <a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
                         <li>
                             <a href="Fotos.php"> <i class="fa fa-photo"></i>Fotos</a>
                         </li>
-                        <li>
-                            <a href="Videos.php"> <i class="fa fa-video-camera"></i>Videos</a>
-                        </li>
+                        
                     </ul>
                 </li>               
                 <li class="active">
@@ -129,7 +126,7 @@ exit;
                                     <strong>Agregue sus parámatros de trabajo</strong>
                                 </div>
                                 <div class="block-body">
-                                    <form method="POST" class="form-horizontal" action="param.php">
+                                    <form method="POST" class="form-horizontal" action="log/param.php">
                                                 
                                         <div class="form-group row">
                                             <label class="col-sm-2 form-control-label">Areas de labor :</label>
@@ -173,42 +170,7 @@ exit;
                                                 </div>
                                             </div>
                                         </div>
-                                                        <!--
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 form-control-label">Días disponibles :</label>
-                                            <div class="col-sm-4">                                                
-                                                <div class="i-checks">
-                                                    <input id="lunes" type="checkbox" value="" class="checkbox-template">
-                                                        <label for="lunes">Lunes</label>
-                                                </div>
-                                                <div class="i-checks">        
-                                                    <input id="martes" type="checkbox" value="" class="checkbox-template">
-                                                        <label for="martes">Martes</label>
-                                                </div>
-                                                <div class="i-checks">        
-                                                    <input id="miercoles" type="checkbox" value="" class="checkbox-template">
-                                                        <label for="miercoles">Miercoles</label>
-                                                </div>       
-                                                <div class="i-checks">        
-                                                    <input id="jueves" type="checkbox" value="" class="checkbox-template">
-                                                        <label for="jueves">Jueves</label>
-                                                </div>
-                                                <div class="i-checks">        
-                                                    <input id="viernes" type="checkbox" value="" class="checkbox-template">
-                                                        <label for="viernes">Viernes</label>
-                                                </div>
-                                                <div class="i-checks">        
-                                                    <input id="sabado" type="checkbox" value="" class="checkbox-template">
-                                                        <label for="sabado">Sabádo</label>
-                                                </div>
-                                                <div class="i-checks">        
-                                                    <input id="domingo" type="checkbox" value="" class="checkbox-template">
-                                                        <label for="domingo">Domingo</label>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                                    -->
+                  
                                         <div class="form-group row">
                                             <label class="col-sm-2 form-control-label">Días disponibles :</label>
                                             <div class="col-sm-9" >

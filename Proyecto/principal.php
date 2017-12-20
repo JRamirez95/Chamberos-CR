@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Principal</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link media="all" type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/estilos.css">
@@ -17,9 +16,11 @@
     <?php            
         $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
         mysqli_set_charset($con,"utf8");
-        $consulta = "SELECT * FROM provincia";         
-        $provincias = mysqli_query($con,$consulta);        
-    ?>
+
+        $consult = "SELECT * FROM area";         
+        $areas = mysqli_query($con,$consult);
+              
+    ?>   
 
 </head>
 
@@ -32,11 +33,11 @@
             </button>
             <a class="navbar-brand mx-auto" href="Inicio.php" style="color: black;">Cham-<span>-Beros</span></a>
             <div class="collapse navbar-collapse" id="navbarCollapse1">
-                <ul class="navbar-nav ml-auto">
-
+                <ul class="navbar-nav ml-auto">               
                     <li class="nav-item">
                         <a class="nav-link" href="login.php" style="color: black;">Ingresar</a>
-                    </li>
+                    </li>                   
+
                 </ul>
             </div>
         </div>
@@ -46,46 +47,32 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide slider-bg-position" style="background:url('https://marketcon.files.wordpress.com/2015/05/ubicacic3b3n-como-estrategia-de-marketing.jpg')" data-hash="slide1">
                 <div class="container" style="margin-top: 5%;">
-                    <div class="col-md-8 col-md-offset-3">
-
+                    <div class="col-md-12">
                         <!-- Search Form -->
-                        <form role="form" action="ConfigurarServicio.php" method="post">            
+                        <form role="form" action="ConfigurarServicio.php">            
                             <!-- Search Field -->
-                            <div class="row">
-                                <h1 class="text-center">Busca tu chambero ideal</h1>
-                                <p><strong>Busca entre miles de de chamberos y haz que llegar a casa sea increíble.</strong></p> 
-                                <br>
-                                <p><strong>Selecciona la provincia en la que desea buscar.</strong></p> 
+                            <div class="form-group row">
+                                <h1 style="text-align:center; width:100%;">Busca tu chambero ideal o registra un trabajo.</h1>
+                                <p><strong>Busca entre miles de de chamberos y haz que llegar a casa sea increíble o bien registre su 
+                                    trabajo que desea realizar y nosotros contactaremos por usted a tu chambero ideal.
+                                </strong></p>                               
                             </div> 
-                            <div class="form-group row">                        
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                             <select class="form-control" name="id_provincia">                                                                       
-                                                <?php
-                                                 while ($row = mysqli_fetch_array($provincias)) {
-                                                    echo "<option value='$row[0]'> $row[1] </option>";                                                        
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>                                            
-                                        <div class="col-md-2">
-                                            <button class="btn btn-success" type="submit">
-                                                <span class="fa fa-search" aria-hidden="true"><span style="margin-left:10px;">Buscar</span></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                                           
+                            
+                            <button class="btn btn-primary" type="submit" style="margin-bottom:2%;">
+                                <span class="" aria-hidden="true"><span>Iniciar busqueda</span></span>
+                            </button>                                            
+                                                                
                         </form>
                         <!-- End of Search Form -->
 
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Rigistrar Trabajo
+                        </button>
                     </div>
-                </div>
+                </div>               
             </div>
-
         </div>
-
     </div>
 
     <section class="service-sec" id="benefits">
@@ -186,8 +173,62 @@
         </div>
     </section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrar Trabajo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form action="log/RegistrarTrabajo.php" method="POST">
+      <div class="modal-body"> 
+            <div class="form-group">
+                <!--<label for="nombre">Nombre</label> esto va antes de todos los inputs-->
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+          
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
+            </div> 
+            <div class="form-group">
+            
+                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección">
+            </div>      
+            <div class="form-group">
+    
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                
+                <textarea  class="form-control" id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
+            </div>  
+            <div class="form-group">
+              
+                <select class="form-control" name="categoria" id="">                   
+                    <?php
+                        while ($row = mysqli_fetch_array($areas)) {                                                                                                                                     
+                            echo "<option value='$row[0]'> $row[1] </option>";                                                        
+                        }
+                    ?>
+                </select>
+            </div>            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 </body>
 

@@ -1138,6 +1138,12 @@ div.avatar {
     margin:auto;
 }
 
+.filtros{
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    margin: 2%;
+    padding: 2%;
+}
 
 /**********************Principal**********************************/
 

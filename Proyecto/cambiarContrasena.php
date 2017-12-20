@@ -34,6 +34,7 @@ exit;
 <?php
     $id = $_SESSION['id'];
     $con = mysqli_connect("localhost","root","","chamberos") or die ("Error de conexion");
+    mysqli_set_charset($con,"utf8");
     $consulta = "SELECT * FROM `usuarios` WHERE id = '$id'";
     $ejecutar = mysqli_query($con,$consulta);
     $row = mysqli_fetch_row($ejecutar);
@@ -82,12 +83,11 @@ exit;
             </div>
             <span class="heading">Menu</span>
             <ul class="list-unstyled">
-                <li><a href="principalUsuarios.php"><i class="fa fa-globe"></i>Presentación</a></li>
-                <li><a href="Mensajes.php"><i class="fa fa-comment"></i>Mensajes</a></li>
+                <li><a href="principalUsuarios.php"><i class="fa fa-globe"></i>Presentación</a></li>                
                 <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"><i class="fa fa-film"></i>Multimedia </a>
                     <ul id="dashvariants" class="collapse list-unstyled">
                         <li><a href="Fotos.php"> <i class="fa fa-photo"></i>Fotos</a></li>
-                        <li><a href="Videos.php"> <i class="fa fa-video-camera"></i>Videos</a></li>
+                        
                     </ul>
                 </li>
                 <li><a href="Parametros.php"><i class="fa fa-cog"></i>Parámetros</a></li>
@@ -121,7 +121,7 @@ exit;
                                     <strong>Cambie su contraseña</strong>
                                 </div>
                                 <div class="block-body">
-                                    <form method="POST" action="editarContra.php" class="form-horizontal">
+                                    <form method="POST" action="log/editarContra.php" class="form-horizontal">
                                         
                                         <div class="form-group row">
                                             <label class="col-sm-2 form-control-label">Contraseña Anterior :</label>
@@ -129,7 +129,7 @@ exit;
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-key"></span>
-                                                        <input name="contraA" type="password" placeholder="" class="form-control">
+                                                        <input name="contraA" type="password" placeholder="" required class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,7 +141,7 @@ exit;
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-key"></span>
-                                                        <input name="contrasena" type="password" placeholder="" class="form-control">
+                                                        <input name="contrasena" type="password" placeholder="" required class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -153,7 +153,7 @@ exit;
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon fa fa-key"></span>
-                                                        <input name="contrasenna"type="password" placeholder="" class="form-control">
+                                                        <input name="contrasenna"type="password" placeholder="" required class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
